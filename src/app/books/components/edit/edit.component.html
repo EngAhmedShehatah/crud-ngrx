@@ -1,10 +1,10 @@
-<div class="container">
+<form class="container" [formGroup]="editForm" (ngSubmit)="update()">
   <legend>Update A Book</legend>
   <div class="mb-3">
     <label for="txtBookName" class="form-label">Book Name</label>
     <input
       type="text"
-      [(ngModel)]="bookForm.name"
+      formControlName="name"
       class="form-control"
       id="txtBookName"
     />
@@ -13,7 +13,7 @@
     <label for="txtAuthor" class="form-label">Author</label>
     <input
       type="text"
-      [(ngModel)]="bookForm.author"
+      formControlName="author"
       class="form-control"
       id="txtAuthor"
     />
@@ -22,10 +22,10 @@
     <label for="txtCost" class="form-label">Cost</label>
     <input
       type="number"
-      [(ngModel)]="bookForm.cost"
+      formControlName="cost"
       class="form-control"
       id="txtCost"
     />
   </div>
-  <button type="button" class="btn btn-dark" (click)="update()">Update</button>
-</div>
+  <button type="button" class="btn btn-dark" type="submit">Update</button>
+</form>

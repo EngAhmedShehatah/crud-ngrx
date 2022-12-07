@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { BooksRoutingModule } from './books.routing';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 import { StoreModule } from '@ngrx/store';
 import { bookReducer } from './store/books.reducer';
@@ -23,6 +23,7 @@ import { EditComponent } from './components/edit/edit.component';
     CommonModule,
     BooksRoutingModule,
     FormsModule,
+    ReactiveFormsModule,
     StoreModule.forFeature('mybooks', bookReducer),
     EffectsModule.forFeature([BooksEffect]),
   ]

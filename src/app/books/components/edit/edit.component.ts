@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
+import { FormControl, FormGroup, NgForm } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { select, Store } from '@ngrx/store';
 import { switchMap } from 'rxjs';
@@ -15,20 +16,20 @@ import { selectBookById } from '../../store/books.selector';
   styleUrls: ['./edit.component.scss']
 })
 export class EditComponent implements OnInit {
+  book: Book;
+  editForm = new FormGroup({
+    id: new FormControl<number>(0),
+    name: new FormControl<string>(''),
+    author: new FormControl<string>(''),
+    cost: new FormControl<number | null>(null)
+  });
 
-  bookForm: Book = {
-    id: 0,
-    author: '',
-    name: '',
-    cost: 0,
-  };
-
-  constructor(
-    private route: ActivatedRoute,
-    private router: Router,
-    private store: Store,
-    private appStore: Store<Appstate>
-  ) { }
+    constructor(
+      private route: ActivatedRoute,
+      private router: Router,
+      private store: Store,
+      private appStore: Store<Appstate>
+    ) { }
 
   ngOnInit(): void {
     let fetchData$ = this.route.paramMap.pipe(
@@ -39,7 +40,8 @@ export class EditComponent implements OnInit {
     );
     fetchData$.subscribe(data => {
       if (data) {
-        this.bookForm = { ...data };
+        this.book = data;
+        this.editForm.setValue({ ...this.book });
       } else {
         this.router.navigate(['/']);
       }
@@ -47,9 +49,15 @@ export class EditComponent implements OnInit {
   }
 
   update() {
+    let data = {
+      id: this.book.id,
+      name: this.editForm.value.name,
+      author: this.editForm.value.author,
+      cost: this.editForm.value.cost
+    }
     this.store.dispatch(
       invokeUpdateBookAPI({
-        updateBook: { ...this.bookForm }
+        updateBook: data
       })
     );
     let apiStatus$ = this.appStore.pipe(select(selectAppState));
