@@ -2,9 +2,9 @@ import { Injectable } from "@angular/core";
 import { Actions, createEffect, ofType } from "@ngrx/effects";
 import { select, Store } from "@ngrx/store";
 import { EMPTY, map, mergeMap, switchMap, withLatestFrom } from "rxjs";
-import { setAPIStatus } from "src/app/shared/store/app.action";
-import { Appstate } from "src/app/shared/store/appstate";
-import { BooksService } from "../books.service";
+import { setAPIStatus } from "src/app/store/app.action";
+import { Appstate } from "src/app/store/appstate";
+import { BooksService } from "../services/books.service";
 import {
   booksFetchAPISuccess,
   deleteBookAPISuccess,

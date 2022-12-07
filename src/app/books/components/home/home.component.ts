@@ -1,10 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { select, Store } from '@ngrx/store';
-import { setAPIStatus } from 'src/app/shared/store/app.action';
-import { selectAppState } from 'src/app/shared/store/app.selector';
-import { Appstate } from 'src/app/shared/store/appstate';
-import { invokeBooksAPI, invokeDeleteBookAPI } from '../store/books.action';
-import { selectBooks } from '../store/books.selector';
+import { setAPIStatus } from 'src/app/store/app.action';
+import { selectAppState } from 'src/app/store/app.selector';
+import { Appstate } from 'src/app/store/appstate';
+import { invokeBooksAPI, invokeDeleteBookAPI } from '../../store/books.action';
+import { selectBooks } from '../../store/books.selector';
 
 declare var window: any;
 

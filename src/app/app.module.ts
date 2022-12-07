@@ -8,7 +8,7 @@ import { StoreModule } from '@ngrx/store';
 import { EffectsModule } from '@ngrx/effects';
 import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 import { environment } from '../environments/environment';
-import { appReducer } from './shared/store/app.reducer';
+import { appReducer } from './store/app.reducer';
 
 @NgModule({
   declarations: [

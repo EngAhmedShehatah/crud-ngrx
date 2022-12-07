@@ -8,9 +8,9 @@ import { bookReducer } from './store/books.reducer';
 import { EffectsModule } from '@ngrx/effects';
 import { BooksEffect } from './store/books.effect';
 
-import { HomeComponent } from './home/home.component';
-import { AddComponent } from './add/add.component';
-import { EditComponent } from './edit/edit.component';
+import { HomeComponent } from './components/home/home.component';
+import { AddComponent } from './components/add/add.component';
+import { EditComponent } from './components/edit/edit.component';
 
 
 @NgModule({
