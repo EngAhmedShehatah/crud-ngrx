@@ -5,7 +5,7 @@ import { switchMap } from 'rxjs';
 import { setAPIStatus } from 'src/app/store/app.action';
 import { selectAppState } from 'src/app/store/app.selector';
 import { Appstate } from 'src/app/store/appstate';
-import { Books } from '../../model/books.model';
+import { Book } from '../../model/book.model';
 import { invokeUpdateBookAPI } from '../../store/books.action';
 import { selectBookById } from '../../store/books.selector';
 
@@ -16,7 +16,7 @@ import { selectBookById } from '../../store/books.selector';
 })
 export class EditComponent implements OnInit {
 
-  bookForm: Books = {
+  bookForm: Book = {
     id: 0,
     author: '',
     name: '',

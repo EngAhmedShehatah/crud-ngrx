@@ -1,5 +1,5 @@
 import { createAction, props } from "@ngrx/store";
-import { Books } from "../model/books.model";
+import { Book } from "../model/book.model";
 
 // retrieve
 export const invokeBooksAPI = createAction(
@@ -8,29 +8,29 @@ export const invokeBooksAPI = createAction(
 
 export const booksFetchAPISuccess = createAction(
   '[Books API] Fetch API Success',
-  props<{ allBooks: Books[] }>()
+  props<{ allBooks: Book[] }>()
 );
 
 // create
 export const invokeSaveNewBookAPI = createAction(
   '[Books API] Invoke save new book api',
-  props<{ newBook: Books }>()
+  props<{ newBook: Book }>()
 );
 
 export const saveNewBookAPISuccess = createAction(
   '[Books API] save new book api success',
-  props<{ newBook: Books }>()
+  props<{ newBook: Book }>()
 );
 
 // update
 export const invokeUpdateBookAPI = createAction(
   '[Books API] Invoke update book api',
-  props<{ updateBook: Books }>()
+  props<{ updateBook: Book }>()
 );
 
 export const updateBookAPISuccess = createAction(
   '[Books API] update book api success',
-  props<{ updateBook: Books }>()
+  props<{ updateBook: Book }>()
 );
 
 // delete

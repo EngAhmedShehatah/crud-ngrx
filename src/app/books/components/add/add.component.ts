@@ -4,7 +4,7 @@ import { select, Store } from '@ngrx/store';
 import { setAPIStatus } from 'src/app/store/app.action';
 import { selectAppState } from 'src/app/store/app.selector';
 import { Appstate } from 'src/app/store/appstate';
-import { Books } from '../../model/books.model';
+import { Book } from '../../model/book.model';
 import { invokeSaveNewBookAPI } from '../../store/books.action';
 
 @Component({
@@ -14,7 +14,7 @@ import { invokeSaveNewBookAPI } from '../../store/books.action';
 })
 export class AddComponent implements OnInit {
 
-  bookForm: Books = {
+  bookForm: Book = {
     id: 0,
     author: '',
     name: '',

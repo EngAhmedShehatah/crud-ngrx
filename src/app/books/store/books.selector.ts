@@ -1,9 +1,9 @@
 import { createFeatureSelector, createSelector } from "@ngrx/store";
-import { Books } from "../model/books.model";
+import { Book } from "../model/book.model";
 
-export const selectBooks = createFeatureSelector<Books[]>('mybooks');
+export const selectBooks = createFeatureSelector<Book[]>('mybooks');
 
-export const selectBookById = (bookId: number) => createSelector(selectBooks, (books: Books[]) => {
+export const selectBookById = (bookId: number) => createSelector(selectBooks, (books: Book[]) => {
   var bookbyId = books.filter(item => item.id === bookId);
   if (bookbyId.length == 0) {
     return null;
