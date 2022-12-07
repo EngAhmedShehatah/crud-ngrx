@@ -13,7 +13,7 @@ export class BooksService {
     return this.http.get<Book[]>('http://localhost:3000/books');
   }
 
-  create(payload: Book) {
+  create(payload: Partial<Book>) {
     return this.http.post<Book>('http://localhost:3000/books', payload);
   }
 

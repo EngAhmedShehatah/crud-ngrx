@@ -14,7 +14,7 @@ export const booksFetchAPISuccess = createAction(
 // create
 export const invokeSaveNewBookAPI = createAction(
   '[Books API] Invoke save new book api',
-  props<{ newBook: Book }>()
+  props<{ newBook: Partial<Book> }>()
 );
 
 export const saveNewBookAPISuccess = createAction(

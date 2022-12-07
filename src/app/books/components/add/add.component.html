@@ -1,10 +1,11 @@
-<div class="container">
+<form class="container" #createForm="ngForm" (ngSubmit)="save(createForm)">
   <legend>Add A New Book</legend>
   <div class="mb-3">
     <label for="txtBookName" class=" form-label">Book Name</label>
     <input
       type="text"
-      [(ngModel)]="bookForm.name"
+      name="name"
+      ngModel
       class="form-control"
       id="txtBookName"
     />
@@ -13,7 +14,8 @@
     <label for="txtAuthor" class="form-label">Author</label>
     <input
       type="text"
-      [(ngModel)]=bookForm.author
+      name="author"
+      ngModel
       class="form-control"
       id="txtAuthor"
     />
@@ -22,10 +24,11 @@
     <label for="txtCost" class="form-label">Cost</label>
     <input
       type="number"
-      [(ngModel)]="bookForm.cost"
+      name="cost"
+      ngModel
       class="form-control"
       id="txtCost"
     />
   </div>
-  <button type="button" class="btn btn-dark" (click)="save()">Create</button>
-</div>
+  <button type="button" class="btn btn-dark" type="submit">Create</button>
+</form>

@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { NgForm } from '@angular/forms';
 import { Router } from '@angular/router';
 import { select, Store } from '@ngrx/store';
 import { setAPIStatus } from 'src/app/store/app.action';
@@ -14,13 +15,6 @@ import { invokeSaveNewBookAPI } from '../../store/books.action';
 })
 export class AddComponent implements OnInit {
 
-  bookForm: Book = {
-    id: 0,
-    author: '',
-    name: '',
-    cost: 0,
-  };
-
   constructor(
     private store: Store,
     private appStore: Store<Appstate>,
@@ -30,8 +24,8 @@ export class AddComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  save() {
-    this.store.dispatch(invokeSaveNewBookAPI({ newBook: this.bookForm }));
+  save(form: NgForm) {
+    this.store.dispatch(invokeSaveNewBookAPI({ newBook: form.value }));
     let apiStatus$ = this.appStore.pipe(select(selectAppState));
     apiStatus$.subscribe(appState => {
       if (appState.apiStatus === 'success') {
